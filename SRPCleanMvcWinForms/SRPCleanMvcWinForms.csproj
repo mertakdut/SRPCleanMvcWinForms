@@ -45,6 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IProductManager.cs" />
+    <Compile Include="IProductMapper.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductManager.cs" />
+    <Compile Include="IStreamProvider.cs" />
+    <Compile Include="ProductMapper.cs" />
+    <Compile Include="StreamProvider.cs" />
     <Compile Include="XmlListerForm.cs">
       <SubType>Form</SubType>
     </Compile>
