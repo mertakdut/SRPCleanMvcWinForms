@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SRPCleanMvcWinForms
@@ -16,7 +13,10 @@ namespace SRPCleanMvcWinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new XmlListerForm());
+
+            var form = new XmlListerForm();
+            var presenter = new ProductPresenter(form);
+            Application.Run(form);
         }
     }
 }

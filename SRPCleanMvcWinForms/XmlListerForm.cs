@@ -1,42 +1,65 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
 namespace SRPCleanMvcWinForms
 {
-    public partial class XmlListerForm : Form
+    public partial class XmlListerForm : Form, IProductView
     {
-        private readonly IProductManager productManager;
+        #region Private members and constructors
+        private IProductPresenter presenter;
 
         public XmlListerForm()
         {
             InitializeComponent();
-            productManager = new ProductManager();
         }
+        #endregion
 
+        #region Private Methods
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "XML Document (*.xml)|*.xml|All Files (*.*)|*.*";
-            openFileDialog1.InitialDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\"));
-            var result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                txtFileName.Text = openFileDialog1.FileName;
-                btnLoad.Enabled = true;
-            }
+            presenter.BrowseForFileName();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            var fileName = txtFileName.Text;
+            presenter.ShowProducts();
+        }
+        #endregion
 
-            var products = productManager.GetProducts(fileName);
-            foreach (var product in products)
+        #region Public Methods
+        public void Initialize(IProductPresenter presenter)
+        {
+            this.presenter = presenter;
+        }
+
+        public string ShowOpenXmlFileDialog()
+        {
+            openFileDialog1.Filter = "XML Document (*.xml)|*.xml|All Files (*.*)|*.*";
+            openFileDialog1.InitialDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\"));
+            return openFileDialog1.ShowDialog() == DialogResult.OK ? openFileDialog1.FileName : null;
+        }
+
+        public void SetFileName(string fileName)
+        {
+            txtFileName.Text = fileName;
+            btnLoad.Enabled = true;
+        }
+
+        public string GetFileName()
+        {
+            return txtFileName.Text;
+        }
+
+        public void ShowProducts(IEnumerable<Product> products)
+        {
+            listView1.Items.Clear();
+            foreach (Product product in products)
             {
                 var item = new ListViewItem
                 (
-                    new string[]
+                    new[]
                     {
                         product.Id.ToString(),
                         product.Name,
@@ -48,5 +71,6 @@ namespace SRPCleanMvcWinForms
                 listView1.Items.Add(item);
             }
         }
+        #endregion
     }
 }

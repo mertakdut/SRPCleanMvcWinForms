@@ -2,7 +2,7 @@
 
 namespace SRPCleanMvcWinForms
 {
-    public interface IProductManager
+    public interface IProductRepository
     {
         IEnumerable<Product> GetProducts(string fileName);
     }

@@ -45,12 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IProductManager.cs" />
+    <Compile Include="IProductPresenter.cs" />
     <Compile Include="IProductMapper.cs" />
+    <Compile Include="IProductRepository.cs" />
+    <Compile Include="IProductView.cs" />
     <Compile Include="Product.cs" />
-    <Compile Include="ProductManager.cs" />
+    <Compile Include="ProductPresenter.cs" />
     <Compile Include="IStreamProvider.cs" />
     <Compile Include="ProductMapper.cs" />
+    <Compile Include="ProductRepository.cs" />
     <Compile Include="StreamProvider.cs" />
     <Compile Include="XmlListerForm.cs">
       <SubType>Form</SubType>

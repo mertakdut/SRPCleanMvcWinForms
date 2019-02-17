@@ -4,12 +4,12 @@ using System.Xml;
 
 namespace SRPCleanMvcWinForms
 {
-    public class ProductManager : IProductManager
+    public class ProductRepository : IProductRepository
     {
         private readonly IStreamProvider streamProvider;
         private readonly IProductMapper productMapper;
 
-        public ProductManager()
+        public ProductRepository()
         {
             this.streamProvider = new StreamProvider();
             this.productMapper = new ProductMapper();
