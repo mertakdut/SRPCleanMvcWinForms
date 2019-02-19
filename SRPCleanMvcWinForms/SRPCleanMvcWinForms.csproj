@@ -49,9 +49,10 @@
     <Compile Include="IProductMapper.cs" />
     <Compile Include="IProductRepository.cs" />
     <Compile Include="IProductView.cs" />
+    <Compile Include="ISourceReader.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductPresenter.cs" />
-    <Compile Include="IStreamProvider.cs" />
+    <Compile Include="ISourceProvider.cs" />
     <Compile Include="ProductMapper.cs" />
     <Compile Include="ProductRepository.cs" />
     <Compile Include="StreamProvider.cs" />
@@ -63,6 +64,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SourceReader.cs" />
     <EmbeddedResource Include="XmlListerForm.resx">
       <DependentUpon>XmlListerForm.cs</DependentUpon>
     </EmbeddedResource>

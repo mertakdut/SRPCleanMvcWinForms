@@ -2,7 +2,7 @@
 
 namespace SRPCleanMvcWinForms
 {
-    public interface IStreamProvider
+    public interface ISourceProvider
     {
         Stream Load(string fileName);
     }

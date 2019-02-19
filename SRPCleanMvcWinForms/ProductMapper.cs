@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Xml;
 
 namespace SRPCleanMvcWinForms
 {
     public class ProductMapper : IProductMapper
     {
-        public Product Map(XmlReader reader)
+        public Product Map(ISourceReader reader)
         {
             if (reader == null)
                 throw new ArgumentNullException("XML reader used when mapping cannot be null.");
 
             if (reader.Name != "product")
-                throw new InvalidOperationException("XML reader is not on a product fragment.");
+                return null;
 
             var product = new Product();
 

@@ -6,28 +6,29 @@ namespace SRPCleanMvcWinForms
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly IStreamProvider streamProvider;
+        private readonly ISourceProvider sourceProvider;
         private readonly IProductMapper productMapper;
+        private readonly ISourceReader sourceReader;
 
         public ProductRepository()
         {
-            this.streamProvider = new StreamProvider();
+            this.sourceProvider = new SourceProvider();
             this.productMapper = new ProductMapper();
+            this.sourceReader = new SourceReader();
         }
 
         public IEnumerable<Product> GetProducts(string fileName)
         {
             var products = new List<Product>();
-            using (Stream stream = streamProvider.Load(fileName))
+            using (Stream stream = sourceProvider.Load(fileName))
             {
-                var reader = XmlReader.Create(stream);
+                var reader = sourceReader.Create(stream);
                 while (reader.Read())
                 {
-                    if (reader.Name != "product")
-                        continue;
-
                     var product = productMapper.Map(reader);
-                    products.Add(product);
+
+                    if (product != null)
+                        products.Add(product);
                 }
             }
 

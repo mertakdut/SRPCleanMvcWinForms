@@ -4,6 +4,6 @@ namespace SRPCleanMvcWinForms
 {
     public interface IProductMapper
     {
-        Product Map(XmlReader reader);
+        Product Map(ISourceReader reader);
     }
 }
