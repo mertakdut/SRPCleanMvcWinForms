@@ -4,7 +4,7 @@ namespace SRPCleanMvcWinForms
 {
     public interface ISourceReader
     {
-        SourceReader Create(Stream stream);
+        ISourceReader Create(Stream stream);
 
         string Name { get; }
 

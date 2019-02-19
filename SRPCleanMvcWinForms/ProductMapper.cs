@@ -7,7 +7,7 @@ namespace SRPCleanMvcWinForms
         public Product Map(ISourceReader reader)
         {
             if (reader == null)
-                throw new ArgumentNullException("XML reader used when mapping cannot be null.");
+                throw new ArgumentNullException("Source reader is null.");
 
             if (reader.Name != "product")
                 return null;

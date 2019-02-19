@@ -12,7 +12,7 @@ namespace SRPCleanMvcWinForms
             get { return reader.Name; }
         }
 
-        public SourceReader Create(Stream stream)
+        public ISourceReader Create(Stream stream)
         {
             reader = XmlReader.Create(stream);
             return this;
