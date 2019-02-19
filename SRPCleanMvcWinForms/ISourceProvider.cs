@@ -4,6 +4,6 @@ namespace SRPCleanMvcWinForms
 {
     public interface ISourceProvider
     {
-        Stream Load(string fileName);
+        Stream Load(string sourceIndicator);
     }
 }

@@ -4,6 +4,6 @@ namespace SRPCleanMvcWinForms
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> GetProducts(string fileName);
+        IEnumerable<Product> GetProducts(string sourceIndicator);
     }
 }

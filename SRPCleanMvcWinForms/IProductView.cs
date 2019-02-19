@@ -8,7 +8,7 @@ namespace SRPCleanMvcWinForms
 
         string ShowOpenXmlFileDialog();
 
-        string GetFileName();
+        string GetSourceIndicator();
 
         void SetFileName(string fileName);
 

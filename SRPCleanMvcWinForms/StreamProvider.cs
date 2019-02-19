@@ -4,9 +4,9 @@ namespace SRPCleanMvcWinForms
 {
     public class SourceProvider : ISourceProvider
     {
-        public Stream Load(string fileName)
+        public Stream Load(string sourceIndicator)
         {
-            return new FileStream(fileName, FileMode.Open);
+            return new FileStream(sourceIndicator, FileMode.Open);
         }
     }
 }

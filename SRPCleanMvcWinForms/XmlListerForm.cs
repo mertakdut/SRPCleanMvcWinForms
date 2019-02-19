@@ -47,7 +47,7 @@ namespace SRPCleanMvcWinForms
             btnLoad.Enabled = true;
         }
 
-        public string GetFileName()
+        public string GetSourceIndicator()
         {
             return txtFileName.Text;
         }

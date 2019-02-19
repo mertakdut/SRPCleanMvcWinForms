@@ -24,7 +24,7 @@
 
         public void ShowProducts()
         {
-            var products = productRepository.GetProducts(view.GetFileName());
+            var products = productRepository.GetProducts(view.GetSourceIndicator());
             view.ShowProducts(products);
         }
     }
